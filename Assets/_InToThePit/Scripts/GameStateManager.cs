@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum GameState //Estis se usan para hacer llamados al cual todos puedan suscribirse y recibir notificaciones de cambios de estado
+public enum GameState //Estos se usan para hacer llamados al cual todos puedan suscribirse y recibir notificaciones de cambios de estado
 {
     Loading,
     Loaded,

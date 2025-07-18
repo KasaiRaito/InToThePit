@@ -3,6 +3,10 @@ using UnityEngine.UI;
 
 public class UI_MenuScreen : MonoBehaviour
 {
+    /*
+     * This code controlles the UI in MainMenu
+     */
+    
     [SerializeField] private Button startGameButton;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnEnable()
@@ -14,6 +18,8 @@ public class UI_MenuScreen : MonoBehaviour
     void OnDisable()
     {
         startGameButton.onClick.RemoveAllListeners();
+        
+        FindAnyObjectByType<GameControllerCore>().ResetTimer();
     }
 
     void OnUserStartGame()

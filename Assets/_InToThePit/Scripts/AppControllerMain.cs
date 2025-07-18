@@ -16,9 +16,13 @@ public class AppControllerMain : MonoBehaviour
         if(_initialized) return;
         _initialized = true;
         
+        //Aqui hacemos la gerarquia de orden de inicialisacion de los proyectos.
+
+        //Gameplay Controller (Game Logic) 
         GameControllerCore = FindAnyObjectByType<GameControllerCore>();
         GameControllerCore.Init();
         
+        //UI Manager (References of canvas screens)
         UI_Manager = FindAnyObjectByType<UI_Manager>();
         UI_Manager.Init();
         
