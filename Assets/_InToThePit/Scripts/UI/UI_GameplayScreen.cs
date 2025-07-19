@@ -9,6 +9,8 @@ public class UI_GameplayScreen : MonoBehaviour
 {
     //BUTTONS
     [SerializeField] private Button pauseGameButton;
+    //STICK
+    [SerializeField] private MyJoyStick joyStick;
     
     //IMAGES
     [SerializeField] private Image timeBar;
@@ -16,17 +18,19 @@ public class UI_GameplayScreen : MonoBehaviour
 
     void Start()
     {
-        this.gameObject.SetActive(true);    
+        
     }
     
     void OnEnable()
     {
         pauseGameButton.onClick.AddListener(PauseGame);
+        joyStick.SetCanMovePlayer(true);
     }
     
     void OnDisable()
     {
         pauseGameButton.onClick.RemoveAllListeners();
+        joyStick.SetCanMovePlayer(false);
     }
     
     void OnUserMainMenu()

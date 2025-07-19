@@ -18,8 +18,7 @@ public class UI_MenuScreen : MonoBehaviour
     void OnDisable()
     {
         startGameButton.onClick.RemoveAllListeners();
-        
-        FindAnyObjectByType<GameControllerCore>().ResetTimer();
+        FindAnyObjectByType<GameControllerCore>().ResetTimer(); //Pasar al UI manager
     }
 
     void OnUserStartGame()

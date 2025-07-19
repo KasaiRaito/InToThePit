@@ -6,8 +6,10 @@ public class UI_Manager : MonoBehaviour
     public GameObject UI_GameplayScreen;
     public GameObject UI_GameOverScreen;
     public GameObject UI_PauseScreen;
+    public MyJoyStick JoyStick;
     
-    private GameObject currentScreen;
+    private GameObject _currentScreen;
+    private GameObject _preScreen;
     
     //Ocupa mas memoria, pero es limpío en sintaxis
     private GameObject[] UIs;
@@ -21,11 +23,12 @@ public class UI_Manager : MonoBehaviour
     public void OnDisable()
     {
         GameplayEventsHUD.onGameStateChanged.RemoveListener(OnGameStateChanged);
+        UIs = null;
     }
 
     void OnGameStateChanged(GameState newState)
     {
-        currentScreen = newState switch
+        _currentScreen = newState switch
         {
             GameState.MainMenu => UI_MenuScreen,
             GameState.Playing => UI_GameplayScreen,
@@ -34,30 +37,38 @@ public class UI_Manager : MonoBehaviour
             _ => null
         };
 
-        foreach (GameObject screen in UIs)
+        if (_currentScreen == UI_MenuScreen)
         {
-            screen.SetActive(screen == currentScreen);
+            SetActiveScreen();
+            JoyStick.SetCanMovePlayer(false);
         }
-
-        if (currentScreen == UI_MenuScreen)
+        else if (_currentScreen == UI_GameplayScreen)
         {
-            
+            SetActiveScreen();
+            JoyStick.SetCanMovePlayer(true);
         }
-        else if (currentScreen == UI_GameplayScreen)
+        else if (_currentScreen == UI_GameOverScreen)
         {
-            
+            SetActiveScreen();
+            JoyStick.SetCanMovePlayer(false);
         }
-        else if (currentScreen == UI_GameOverScreen)
+        else if (_currentScreen == UI_PauseScreen)
         {
-            
-        }
-        else if (currentScreen == UI_PauseScreen)
-        {
-            
+            SetActiveScreen(UI_GameplayScreen);
+            JoyStick.SetCanMovePlayer(false);
         }
         else
         {
             Debug.LogWarning($"No UI screen found for GameState: {newState}");
+        }
+        
+    }
+
+    void SetActiveScreen(GameObject exeption = null)
+    {
+        foreach (var ui in UIs)
+        {
+            ui.SetActive(ui == _currentScreen || ui == exeption);
         }
     }
 }

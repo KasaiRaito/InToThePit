@@ -16,11 +16,6 @@ public class GameControllerCore : MonoBehaviour
     {
         Debug.Log("GameControllerCore was initialized().");
         
-        if (_uiGameplayScreen == null)
-        {
-            _uiGameplayScreen = FindAnyObjectByType<UI_GameplayScreen>().GetComponent<UI_GameplayScreen>();
-        }
-        
         GameplayEventsHUD.onGameStateChanged.AddListener(ManageCurrentSession);
     }
 
@@ -58,5 +53,10 @@ public class GameControllerCore : MonoBehaviour
     public void ResetTimer()
     {
         currentTime = sessionTime;
+    }
+    
+    public void SetJoyStickCanMovePlayer(bool canMove)
+    {
+        
     }
 }
