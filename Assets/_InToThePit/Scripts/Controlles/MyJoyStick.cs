@@ -4,7 +4,7 @@ using ETouch = UnityEngine.InputSystem.EnhancedTouch;
 
 public class MyJoyStick : MonoBehaviour
 {
-    [SerializeField] private Vector2 joystickSize = new Vector2(300, 300);
+    [SerializeField] private Vector2 joystickSize;
     [SerializeField] private FloatingJoyStick joystick;
     [SerializeField] private bool canMovePlayer;
 

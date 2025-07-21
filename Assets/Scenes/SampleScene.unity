@@ -537,13 +537,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: -5, z: -3.49}
+  m_LocalScale: {x: 0.5, y: 0.49999988, z: 0.49999988}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 1147605973}
+  m_LocalEulerAnglesHint: {x: -45, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2066,6 +2066,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db35b0a611b68446a9788a264a0ca3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joystick: {fileID: 468637139}
+  speed: 5
+  size: 0
 --- !u!135 &1147605971
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2154,7 +2157,8 @@ Transform:
   m_LocalPosition: {x: 1.946, y: 0.0001, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 330585546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &1147605974
@@ -2511,7 +2515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1404792928
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3491,7 +3495,6 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 490374215}
