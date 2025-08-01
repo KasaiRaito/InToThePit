@@ -12,6 +12,11 @@ public class Consumable : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
     }
 
+    public void Simulate(bool gravity)
+    {
+        _rb.useGravity = gravity;
+    }
+
     public void OnSwallowed()
     {
         StartCoroutine(nameof(Swallow));
@@ -19,7 +24,6 @@ public class Consumable : MonoBehaviour
 
     IEnumerator Swallow()
     {
-        _rb.useGravity = true;
         yield return new WaitForSeconds(1f);
         this.gameObject.SetActive(false);
 

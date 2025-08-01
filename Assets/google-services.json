@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "943223416438",
+    "firebase_url": "https://intothepit-8db64-default-rtdb.firebaseio.com",
+    "project_id": "intothepit-8db64",
+    "storage_bucket": "intothepit-8db64.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:943223416438:android:2d93e661ae5b8a898b6157",
+        "android_client_info": {
+          "package_name": "com.KasaiRaito.InToThePit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuyLQtmQH4e7PVabEhI-3DBhVUdfqrw0c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

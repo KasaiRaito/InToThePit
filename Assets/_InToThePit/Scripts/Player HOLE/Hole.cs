@@ -29,7 +29,17 @@ public class Hole : MonoBehaviour
 
         if (consumable)
         {
-            consumable.OnSwallowed();
+            consumable.Simulate(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Consumable consumable = other.gameObject.GetComponent<Consumable>();
+
+        if (consumable)
+        {
+            consumable.Simulate(false);
         }
     }
 
