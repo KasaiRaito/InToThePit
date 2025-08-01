@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-
 public class Consumable : MonoBehaviour
 {
     private BoxCollider _boxCollider;
@@ -23,5 +22,7 @@ public class Consumable : MonoBehaviour
         _rb.useGravity = true;
         yield return new WaitForSeconds(1f);
         this.gameObject.SetActive(false);
+
+        FindAnyObjectByType<Hole>().Grow(1);
     }
 }

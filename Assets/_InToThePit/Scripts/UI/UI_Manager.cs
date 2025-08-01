@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UI_Manager : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class UI_Manager : MonoBehaviour
         {
             SetActiveScreen();
             JoyStick.SetCanMovePlayer(false);
+            //SceneManager.LoadScene("SampleScene");
         }
         else if (_currentScreen == UI_GameplayScreen)
         {
