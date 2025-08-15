@@ -7,6 +7,9 @@ public class UI_Manager : MonoBehaviour
     public GameObject UI_GameplayScreen;
     public GameObject UI_GameOverScreen;
     public GameObject UI_PauseScreen;
+    public GameObject UI_Store;
+    public GameObject UI_LoginScreen;
+    public GameObject UI_RegisterScreen;
     public MyJoyStick JoyStick;
     
     private GameObject _currentScreen;
@@ -18,7 +21,8 @@ public class UI_Manager : MonoBehaviour
     public void Init()
     {
         GameplayEventsHUD.onGameStateChanged.AddListener(OnGameStateChanged);
-        UIs = new GameObject[] { UI_MenuScreen, UI_GameplayScreen, UI_GameOverScreen, UI_PauseScreen };
+        UIs = new GameObject[] { UI_MenuScreen, UI_GameplayScreen, UI_GameOverScreen, UI_PauseScreen, UI_Store,
+            UI_LoginScreen, UI_RegisterScreen };
     }
 
     public void OnDisable()
@@ -35,6 +39,9 @@ public class UI_Manager : MonoBehaviour
             GameState.Playing => UI_GameplayScreen,
             GameState.Paused => UI_PauseScreen,
             GameState.GameOver => UI_GameOverScreen,
+            GameState.Register => UI_RegisterScreen,
+            GameState.LogIn => UI_LoginScreen,
+            GameState.Store => UI_Store,
             _ => null
         };
 
@@ -57,6 +64,22 @@ public class UI_Manager : MonoBehaviour
         else if (_currentScreen == UI_PauseScreen)
         {
             SetActiveScreen(UI_GameplayScreen);
+            JoyStick.SetCanMovePlayer(false);
+        }
+        else if (_currentScreen == UI_Store)
+        {
+            SetActiveScreen();
+            JoyStick.SetCanMovePlayer(false);
+        }
+        //LOG IN
+        else if (_currentScreen == UI_LoginScreen)
+        {
+            SetActiveScreen();
+            JoyStick.SetCanMovePlayer(false);
+        }
+        else if (_currentScreen == UI_RegisterScreen)
+        {
+            SetActiveScreen();
             JoyStick.SetCanMovePlayer(false);
         }
         else

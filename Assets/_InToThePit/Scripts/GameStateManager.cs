@@ -9,6 +9,9 @@ public enum GameState //Estos se usan para hacer llamados al cual todos puedan s
     GameOver,
     Victory,
     MainMenu,
+    Store,
+    Register,
+    LogIn,
 }
 
 public class GameStateManager : MonoBehaviour
