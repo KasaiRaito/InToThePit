@@ -64,7 +64,7 @@ public class DataSaver : MonoBehaviour
         if (!IsReady()) return;
 
         string json = JsonUtility.ToJson(dts);
-        dbRef.Child("users").Child(userId).SetRawJsonValueAsync(json)
+        dbRef.Child("Users").Child(userId).SetRawJsonValueAsync(json)
             .ContinueWithOnMainThread(task =>
             {
                 if (task.IsCanceled) { Debug.LogError("Save canceled."); return; }
@@ -81,7 +81,7 @@ public class DataSaver : MonoBehaviour
 
     private IEnumerator LoadDataEnum()
     {
-        var op = dbRef.Child("users").Child(userId).GetValueAsync();
+        var op = dbRef.Child("Users").Child(userId).GetValueAsync();
         yield return new WaitUntil(() => op.IsCompleted);
 
         if (op.IsFaulted)
