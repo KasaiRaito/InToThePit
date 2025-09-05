@@ -26,7 +26,7 @@ public class DataLoad : MonoBehaviour
 
     private void LoadMyData(string uid)
     {
-        databaseReference.Child("users").Child(uid).GetValueAsync().ContinueWithOnMainThread
+        databaseReference.Child("Users").Child(uid).GetValueAsync().ContinueWithOnMainThread
         (task =>
             {
                 if (task.IsFaulted)
