@@ -17,6 +17,8 @@ public class UI_Manager : MonoBehaviour
     
     //Ocupa mas memoria, pero es limpío en sintaxis
     private GameObject[] UIs;
+    
+    [SerializeField] private InterstitialAdExample _interstitial;
 
     public void Init()
     {
@@ -49,6 +51,7 @@ public class UI_Manager : MonoBehaviour
         {
             SetActiveScreen();
             JoyStick.SetCanMovePlayer(false);
+            ShowAdd();
             //SceneManager.LoadScene("SampleScene");
         }
         else if (_currentScreen == UI_GameplayScreen)
@@ -95,5 +98,10 @@ public class UI_Manager : MonoBehaviour
         {
             ui.SetActive(ui == _currentScreen || ui == exeption);
         }
+    }
+    
+    void ShowAdd()
+    {
+        _interstitial.ShowAd();
     }
 }
