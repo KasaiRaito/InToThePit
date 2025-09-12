@@ -4,7 +4,10 @@ using System;
 using Firebase;
 using Firebase.Auth;
 using Firebase.Database;
+using System.Collections.Generic;
 using Firebase.Extensions;   // for ContinueWithOnMainThread
+
+[DefaultExecutionOrder(-100)]
 
 [Serializable]
 public class dataToSave
@@ -13,6 +16,8 @@ public class dataToSave
     public int totalCoins;
     public int crrLevel;
     public int highScore;
+
+    public List<string> ownedSkins;
 }
 
 public class DataSaver : MonoBehaviour
@@ -57,6 +62,8 @@ public class DataSaver : MonoBehaviour
 
         // Ensure dts exists so Save doesn't serialize null
         if (dts == null) dts = new dataToSave();
+
+        LoadDataFn();
     }
 
     public void SaveDataFn()
@@ -121,5 +128,44 @@ public class DataSaver : MonoBehaviour
             userId = auth.CurrentUser.UserId; // refresh if needed
         }
         return true;
+    }
+
+    public int GetTotalCoins()
+    {
+        return dts.totalCoins;
+    }
+
+    public void SetTotalCoins(int coins)
+    {
+        dts.totalCoins = coins;
+    }
+
+    public void AddCoins(int coins)
+    {
+        dts.totalCoins += coins;
+    }
+
+    public List<string> GetOwnedSkins()
+    {
+        if (dts.ownedSkins == null)
+        {
+            return dts.ownedSkins = new List<string>();
+        }
+        else
+        {
+            return dts.ownedSkins;
+        }
+    }
+
+    public void AddToOwnedSkins(string name)
+    {
+        if (dts.ownedSkins == null)
+        {
+            dts.ownedSkins = new List<string>();
+        }
+        if (!dts.ownedSkins.Contains(name))
+        {
+            dts.ownedSkins.Add(name);
+        }
     }
 }

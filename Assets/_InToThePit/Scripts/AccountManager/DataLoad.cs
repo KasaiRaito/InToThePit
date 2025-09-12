@@ -6,7 +6,7 @@ using Firebase.Extensions;
 
 public class DataLoad : MonoBehaviour
 {
-    DatabaseReference databaseReference;
+   DatabaseReference databaseReference;
     FirebaseAuth firebaseAuth;
 
     private void Start()

@@ -3211,6 +3211,7 @@ MonoBehaviour:
   sessionTime: 100
   currentTime: 0
   _uiGameplayScreen: {fileID: 1404792929}
+  _dataSaver: {fileID: 490374221}
 --- !u!114 &490374220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3244,9 +3245,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dts:
     userName: EDHE
-    totalCoins: 100
+    totalCoins: 2000
     crrLevel: 10
     highScore: 2000
+    ownedSkins: []
 --- !u!114 &490374222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8971,6 +8973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cancelButton: {fileID: 875290740}
+  shelf: {fileID: 1610090465}
 --- !u!1 &1534759629
 GameObject:
   m_ObjectHideFlags: 0

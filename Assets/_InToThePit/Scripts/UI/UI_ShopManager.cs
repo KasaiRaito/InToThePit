@@ -59,7 +59,7 @@ public class UI_ShopManager : MonoBehaviour
 
        if (task.IsFaulted)
        {
-           Debug.Log("Error loading store: " + task.Exception);
+           Debug.LogError("Error loading store: " + task.Exception);
            yield break;
        }
        
@@ -67,11 +67,13 @@ public class UI_ShopManager : MonoBehaviour
 
        if (!snap.Exists)
        {
-           Debug.Log("No store found");
+           Debug.LogError("No store found");
            yield break;
        }
 
-       foreach (var child in snap.Children)
+       Debug.Log(snap.ChildrenCount);
+
+        foreach (var child in snap.Children)
        {
            var item = JsonUtility.FromJson<ShopItem>(child.GetRawJsonValue());
            item.ID = child.Key;
